@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка Эрнеста Адилханяна</title>
+    <style>
+        :root {
+            --background-color: #f2f2f2;
+            --text-color: #333;
+            --container-bg: #fff;
+            --link-color: #4fa3ff;
+            --link-hover-color: #1c7cd6;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: var(--container-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s, transform 1s;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 1s, transform 1s;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .contacts {
+            margin-top: 20px;
+            text-align: left;
+            padding: 0 20px;
+        }
+        .contacts p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .contacts a {
+            font-size: 18px;
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contacts a:hover {
+            color: var(--link-hover-color);
+        }
+        .theme-toggle {
+            margin: 20px auto;
+            cursor: pointer;
+            background: none;
+            border: 1px solid var(--text-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .theme-toggle:hover {
+            background: var(--text-color);
+            color: var(--background-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="IMG_6745.jpeg" alt="Фотография Эрнеста Адилханяна" id="profile-photo">
+        <h1>Привет! Меня зовут Эрнест Адилханян</h1>
+        <p>Мне 23 года, я из города Краснодар.</p>
+        <p>Занимаюсь тестированием ПО, люблю всё, что связано с IT и технологиями.</p>
+        <p>Всегда рад изучать что-то новое для себя и планирую развиваться в направлении тестирования дальше.</p>
+
+        <div class="contacts">
+            <p>Номер телефона — <a href="tel:+79503574770">+7-950-357-47-70</a></p>
+            <p>Телеграмм — <a href="https://t.me/Ernest081201" target="_blank">@Ernest081201</a></p>
+            <p>GIT — <a href="https://github.com/Ernest081201" target="_blank">github.com/Ernest081201</a></p>
+            <p>Моё резюме — <a href="https://krasnodar.hh.ru/resume/4bdaf9caff0e44a5b60039ed1f747a61466856" target="_blank">hh.ru/resume</a></p>
+        </div>
+    </div>
+
+    <button class="theme-toggle" id="theme-toggle">Сменить тему</button>
+
+    <script>
+        // Простой эффект для анимации появления контейнера и фото
+        window.onload = () => {
+            const container = document.querySelector('.container');
+            const photo = document.getElementById('profile-photo');
+            container.style.opacity = 1;
+            container.style.transform = 'translateY(0)';
+            photo.style.opacity = 1;
+            photo.style.transform = 'scale(1)';
+        };
+
+        // Смена темы
+        const themeToggle = document.getElementById('theme-toggle');
+        let darkMode = false;
+
+        themeToggle.addEventListener('click', () => {
+            darkMode = !darkMode;
+            document.documentElement.style.setProperty('--background-color', darkMode ? '#333' : '#f2f2f2');
+            document.documentElement.style.setProperty('--text-color', darkMode ? '#f2f2f2' : '#333');
+            document.documentElement.style.setProperty('--container-bg', darkMode ? '#444' : '#fff');
+            document.documentElement.style.setProperty('--link-color', darkMode ? '#81c6ff' : '#4fa3ff');
+            document.documentElement.style.setProperty('--link-hover-color', darkMode ? '#1fa1ff' : '#1c7cd6');
+        });
+    </script>
+</body>
+</html>
+
+
